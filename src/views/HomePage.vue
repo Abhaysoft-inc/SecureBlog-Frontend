@@ -28,3 +28,31 @@
     </div>
   </div>
 </template>
+
+<script>
+import MyNavbar from '../components/NavbarComp.vue';
+import axios from 'axios';
+export default {
+  components: {
+    MyNavbar,
+  },
+  data() {
+    return {
+      posts: [],
+    };
+  },
+  methods: {
+    async loadPosts() {
+      try {
+        const response = await axios.get('https://secureblog-backend.onrender.com/api/blogs'); // Replace with your backend API endpoint
+        this.posts = response.data.reverse(); // Reverse the posts array
+      } catch (error) {
+        console.error(error);
+      }
+    },
+  },
+  created() {
+    this.loadPosts(); // Fetch blog posts when the component is created
+  },
+};
+</script>
