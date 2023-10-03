@@ -78,7 +78,7 @@
     // },
     async deletePost(postId) {
       try {
-        await axios.delete(`https://secureblog.onrender.com/api/blogs/${postId}`);
+        await axios.delete(`https://secureblog-backend.onrender.com/api/blogs/${postId}`);
         // Reload user's posts after deletion
         this.loadUserPosts();
       } catch (error) {
