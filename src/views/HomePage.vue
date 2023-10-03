@@ -4,13 +4,13 @@
     <div class="container mt-4">
       <h1>Latest Posts</h1>
 
-      <div v-if="sortedPosts.length > 0" class="container my-4">
+      <div class="container my-4">
         <div class="row">
           <div
-            v-for="(post, index) in sortedPosts"
+            v-for="(post, index) in posts"
             :key="post._id"
             class="col-md-4 mb-4"
-            :class="{ 'latest-post': index === posts.length - 1 }"
+            :class="{ 'latest-post': index === 0 }"
           >
             <div class="card">
               <img src="@/assets/logo.png" class="card-img-top" alt="Post Image" />
@@ -25,40 +25,6 @@
           </div>
         </div>
       </div>
-
-      <div v-else>
-        <p>Loading posts...</p>
-      </div>
     </div>
   </div>
 </template>
-
-<script>
-import MyNavbar from '../components/NavbarComp.vue';
-import axios from 'axios';
-export default {
-  components: {
-    MyNavbar,
-  },
-  data() {
-    return {
-      posts: [],
-      sortedPosts: [],
-    };
-  },
-  methods: {
-    async loadPosts() {
-      try {
-        const response = await axios.get('https://secureblog-backend.onrender.com/api/blogs'); // Replace with your backend API endpoint
-        this.posts = response.data;
-        this.sortedPosts = this.posts.sort((a, b) => b.date - a.date); // Sort the posts array by date in descending order
-      } catch (error) {
-        console.error(error);
-      }
-    },
-  },
-  created() {
-    this.loadPosts(); // Fetch blog posts when the component is created
-  },
-};
-</script>
