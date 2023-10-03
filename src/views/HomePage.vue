@@ -4,7 +4,7 @@
     <div class="container mt-4">
       <h1>Latest Posts</h1>
 
-      <div class="container my-4">
+      <div v-if="sortedPosts.length > 0" class="container my-4">
         <div class="row">
           <div
             v-for="(post, index) in sortedPosts"
@@ -24,6 +24,10 @@
             </div>
           </div>
         </div>
+      </div>
+
+      <div v-else>
+        <p>Loading posts...</p>
       </div>
     </div>
   </div>
