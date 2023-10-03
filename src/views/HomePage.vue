@@ -7,7 +7,7 @@
       <div class="container my-4">
         <div class="row">
           <div
-            v-for="(post, index) in posts.sort((a, b) => b.date - a.date)"
+            v-for="(post, index) in sortedPosts"
             :key="post._id"
             class="col-md-4 mb-4"
             :class="{ 'latest-post': index === posts.length - 1 }"
@@ -39,6 +39,7 @@ export default {
   data() {
     return {
       posts: [],
+      sortedPosts: [],
     };
   },
   methods: {
@@ -46,6 +47,7 @@ export default {
       try {
         const response = await axios.get('https://secureblog-backend.onrender.com/api/blogs'); // Replace with your backend API endpoint
         this.posts = response.data;
+        this.sortedPosts = this.posts.sort((a, b) => b.date - a.date); // Sort the posts array by date in descending order
       } catch (error) {
         console.error(error);
       }
