@@ -9,6 +9,7 @@
   <p class="lead">
     <!-- <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a> -->
     <LogoutButton/>
+    <router-link to="/new" class="btn btn-success">Create Post<router-link>
 
   </p>
 </div>
