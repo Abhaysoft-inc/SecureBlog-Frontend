@@ -35,7 +35,7 @@
     },
     async created() {
       try {
-        const response = await axios.get(`http://localhost:3000/api/blogs/${this.$route.params.id}`);
+        const response = await axios.get(`https://secureblog-backend.onrender.com/api/blogs/${this.$route.params.id}`);
         this.postCopy = response.data;
       } catch (error) {
         console.error(error);
