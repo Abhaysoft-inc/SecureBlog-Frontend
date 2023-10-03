@@ -67,7 +67,7 @@
     methods: {
     async loadUserPosts() {
     try {
-      const response = await axios.get(`http://localhost:3000/api/blogs/user/${this.username}`);
+      const response = await axios.get(`https://secureblog.onrender.com/api/blogs/user/${this.username}`);
       this.userPosts = response.data;
     } catch (error) {
       console.error('Error fetching user posts:', error);
@@ -78,7 +78,7 @@
     // },
     async deletePost(postId) {
       try {
-        await axios.delete(`http://localhost:3000/api/blogs/${postId}`);
+        await axios.delete(`https://secureblog.onrender.com/api/blogs/${postId}`);
         // Reload user's posts after deletion
         this.loadUserPosts();
       } catch (error) {
