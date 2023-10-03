@@ -2,7 +2,7 @@
     <div>
       <MyNavbar />
       <div class="container mt-4">
-        <h1>All Blog Posts</h1>
+        <h1>Latest Posts</h1>
   
         <!-- Iterate through the blog posts and display each one as a Bootstrap card with an image and summary -->
         <div class="container my-4">
