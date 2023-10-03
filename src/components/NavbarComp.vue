@@ -37,7 +37,7 @@
       async logout() {
         try {
           // Send a request to the logout route on the server
-          const response = await axios.post(`http://localhost:3000/api/auth/logout`);
+          const response = await axios.post(`https://secureblog.onrender.com/api/auth/logout`);
           
           if (response.status === 200) {
             // Clear the client-side token and any other stored data
