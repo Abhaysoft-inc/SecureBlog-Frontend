@@ -67,7 +67,7 @@
     methods: {
     async loadUserPosts() {
     try {
-      const response = await axios.get(`https://secureblog.onrender.com/api/blogs/user/${this.username}`);
+      const response = await axios.get(`https://secureblog-backend.onrender.com/api/blogs/user/${this.username}`);
       this.userPosts = response.data;
     } catch (error) {
       console.error('Error fetching user posts:', error);
