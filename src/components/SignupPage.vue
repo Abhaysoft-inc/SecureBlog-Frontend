@@ -35,7 +35,7 @@
     methods: {
       async signup() {
         try {
-          const response = await axios.post(`https://secureblog.onrender.com/api/auth/signup`, {
+          const response = await axios.post(`https://secureblog-backend.onrender.com/api/auth/signup`, {
             username: this.username,
             password: this.password,
             mobile:this.mobile,
