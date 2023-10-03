@@ -1,5 +1,4 @@
 <template>
-  {{ postCopy.title }}
   <MyNavbar/>
     <div class="container my-4">
       
