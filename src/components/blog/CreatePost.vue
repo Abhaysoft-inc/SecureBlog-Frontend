@@ -51,7 +51,7 @@
     methods: {
       async createPost() {
         try {
-          const response = await axios.post('http://localhost:3000/api/blogs', this.newPost,{author: this.newPost.username,});
+          const response = await axios.post('https://secureblog-backend.onrender.com/api/blogs', this.newPost,{author: this.newPost.username,});
           console.log('New post created:', response.data);
   
           // Optionally, you can redirect the user to the newly created post
