@@ -40,7 +40,7 @@ export default {
   methods: {
     async login() {
       try {
-        const response = await axios.post(`https://secureblog.onrender.com/api/auth/login`, {
+        const response = await axios.post(`https://secureblog-backend.onrender.com/api/auth/login`, {
           username: this.username,
           password: this.password,
         });
