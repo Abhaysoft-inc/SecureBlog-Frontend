@@ -53,7 +53,7 @@ export default{
   methods: {
     async loadPosts() {
       try {
-        const response = await axios.get('http://localhost:3000/api/blogs'); // Replace with your backend API endpoint
+        const response = await axios.get('https://secureblog-backend.onrender.com/api/blogs'); // Replace with your backend API endpoint
         this.posts = response.data;
       } catch (error) {
         console.error(error);
