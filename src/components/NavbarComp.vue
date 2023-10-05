@@ -31,13 +31,14 @@
   </template>
   
   <script>
+  import API_URL from '../../config.js'
   import axios from 'axios';
   export default {
     methods:{
       async logout() {
         try {
           // Send a request to the logout route on the server
-          const response = await axios.post(`https://secureblog-backend.onrender.com/api/auth/logout`);
+          const response = await axios.post(API_URL + `/auth/logout`);
           
           if (response.status === 200) {
             // Clear the client-side token and any other stored data

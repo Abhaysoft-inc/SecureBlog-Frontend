@@ -4,13 +4,18 @@ import { createRouter, createWebHistory } from 'vue-router';
 import dashboardRoutes from './dashboardRoutes';
 import authRoutes from './authRoutes';
 import blogRoutes from './blogRoutes';
-
+import UpdatePost from '@/components/blog/EditPost.vue';
 const router = createRouter({
   history: createWebHistory(),
   routes: [
     ...dashboardRoutes,
     ...authRoutes,
     ...blogRoutes,
+    {
+    path: '/update-post/:id',
+    name: 'update-post',
+    component: UpdatePost,
+  },
     // ... other routes if needed
   ],
   linkExactActiveClass: 'active', // Set the active class

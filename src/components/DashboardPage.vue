@@ -29,7 +29,7 @@
           <td>{{ post.title }}</td>
           <td>{{ post.content }}</td>
           <td>
-            <!-- <button class="btn btn-primary" @click="updatePost(post)">Update</button> -->
+            <button class="btn btn-primary" @click="updatePost(post)">Update</button>
             <button class="btn btn-danger" @click="deletePost(post._id)">Delete</button>
           </td>
         </tr>
@@ -45,6 +45,7 @@
   import LogoutButton from '@/components/LogoutButton.vue';
   import MyNavbar from '@/components/NavbarComp.vue';
   import axios from 'axios';
+  import API_URL from '../../config.js'
   export default {
     components:{
       LogoutButton,
@@ -68,18 +69,19 @@
     methods: {
     async loadUserPosts() {
     try {
-      const response = await axios.get(`https://secureblog-backend.onrender.com/api/blogs/user/${this.username}`);
+      const response = await axios.get(API_URL + `/blogs/user/${this.username}`);
       this.userPosts = response.data.reverse();
     } catch (error) {
       console.error('Error fetching user posts:', error);
     }
   },
-    // updatePost(post) {
-    //   // Implement update post logic here
-    // },
+  updatePost(post) {
+    // Navigate to the update post page and pass the post ID as a route parameter
+    this.$router.push({ name: 'update-post', params: { id: post._id } });
+  },
     async deletePost(postId) {
       try {
-        await axios.delete(`https://secureblog-backend.onrender.com/api/blogs/${postId}`);
+        await axios.delete(API_URL + `/blogs/${postId}`);
         // Reload user's posts after deletion
         this.loadUserPosts();
       } catch (error) {

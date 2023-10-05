@@ -30,6 +30,7 @@
 </template>
 
 <script>
+import API_URL from '../../config.js';
 import MyNavbar from '../components/NavbarComp.vue';
 import axios from 'axios';
 export default {
@@ -44,7 +45,7 @@ export default {
   methods: {
     async loadPosts() {
       try {
-        const response = await axios.get('https://secureblog-backend.onrender.com/api/blogs'); // Replace with your backend API endpoint
+        const response = await axios.get(API_URL + `/blogs`); // Replace with your backend API endpoint
         this.posts = response.data.reverse(); // Reverse the posts array
       } catch (error) {
         console.error(error);

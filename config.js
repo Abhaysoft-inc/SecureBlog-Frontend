@@ -1,2 +1,4 @@
 // config.js
-export const API_URL = 'http://localhost:3000/api'; // Backend URL
+const API_URL = 'https://secureblog-backend.onrender.com/api'; // Backend URL
+
+export default API_URL
