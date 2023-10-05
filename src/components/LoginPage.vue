@@ -24,6 +24,7 @@
 </template>
 
 <script>
+import API_URL from '../../config.js'
 import MyNavbar from '@/components/NavbarComp.vue';
 import axios from 'axios';
 export default {
@@ -40,7 +41,7 @@ export default {
   methods: {
     async login() {
       try {
-        const response = await axios.post(`https://secureblog-backend.onrender.com/api/auth/login`, {
+        const response = await axios.post(API_URL + `/auth/login`, {
           username: this.username,
           password: this.password,
         });

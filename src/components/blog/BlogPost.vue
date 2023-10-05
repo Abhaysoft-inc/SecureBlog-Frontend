@@ -17,6 +17,7 @@
   </template>
   
   <script>
+  import API_URL from '../../../config.js'
   import axios from 'axios';
   import MyNavbar from '@/components/NavbarComp.vue';
   
@@ -33,7 +34,7 @@
     },
     async created() {
       try {
-        const response = await axios.get(`https://secureblog-backend.onrender.com/api/blogs/${this.$route.params.id}`);
+        const response = await axios.get(API_URL + `/blogs/${this.$route.params.id}`);
         this.postCopy = response.data;
       } catch (error) {
         console.error(error);
